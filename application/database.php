@@ -4,13 +4,13 @@ return [
 // 数据库类型
 'type'           => 'mysql',
 // 服务器地址
-'hostname'       => '127.0.0.1',
+'hostname'       => '118.25.8.54',
 // 数据库名
 'database'       => 'anthony_b2c',
 // 用户名
-'username'       => 'root',
+'username'       => 'anthony_b2c',
 // 密码
-'password'       => 'root',
+'password'       => 'anthony',
 // 端口
 'hostport'       => '3306',
 // 连接dsn
