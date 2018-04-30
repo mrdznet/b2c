@@ -1,0 +1,32 @@
+.topic_content ul li{
+	margin-top: 5%;
+}
+.topic_content{
+	padding: 0 3%;
+}
+.topic_text{
+	background-color: #ffffff;
+	padding: 2% 2%;
+}
+.topic_text_bottom{
+	overflow: hidden;
+	padding: 1.5% 0;
+}
+.topic_time{
+	float: right;
+	color: #b4282d;
+	font-size: 0.24rem;
+}
+.topic_keyword{
+	display: inline-block;
+	color: #7f7f7f;
+	font-size: 0.24rem;
+	float: left;
+}
+.topic_text h3 a{
+	font-size: 0.4rem;
+	font-weight: 700;
+	display: block;
+	color: #333;
+	padding: 2% 0;
+}

@@ -1,0 +1,131 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/member.css">
+{/block}
+{block name="content"}
+<section class="g-flexview">
+    <div class="g-scrollview">
+        <div class="member_top">
+            <div class="member_top_images">
+                {if condition="$member_info['user_info']['user_headimg'] eq ''"}
+                <img src="{:__IMG($default_headimg)}" class="member_img">
+                {else/}
+                    <img src="{:__IMG($member_info['user_info']['user_headimg'])}" class="member_img"/>
+                {/if}
+            </div>
+            <div class="member_top_text">
+                {if condition="$member_info['user_info']['nick_name'] eq ''"}
+                <p class="member_nickname">{$member_info["user_info"]['user_name']}</p>
+                {else/}
+                <p class="member_nickname">{$member_info["user_info"]['nick_name']}</p>
+                {/if}
+                <p class="member_grade">{$member_info['level_name']}</p>
+            </div>
+        </div>
+            <div class="m-grids-2">
+                <a href="{:__URL('APP_MAIN/member/balancewater?shop_id='.$shop_id)}" class="grids-item">
+                    <div class="grids-icon"><i class="iconfont icon-yue"></i></div>
+                    <div class="grids-txt"><span>{$member_info['balance']}</span></div>
+                </a>
+                <a href="{:__URL('APP_MAIN/member/integralwater?shop_id='.$shop_id)}" class="grids-item">
+                    <div class="grids-icon"><i class="iconfont icon-tubiao301"></i></div>
+                    <div class="grids-txt"><span>{$member_info['point']}</span></div>
+                </a>
+            </div>
+        <div class="m-grids-3" style="margin-top: 1%;">
+            <a href="{:__URL('APP_MAIN/order/myorderlist?status=0&shop_id='.$shop_id)}" class="grids-item">
+                <div class="grids-icon"><i class="iconfont icon-dingdan"></i></div>
+                <div class="grids-txt"><span>我的订单</span></div>
+            </a>
+            <a href="{:__URL('APP_MAIN/Member/personaldata')}" class="grids-item">
+                <div class="grids-icon"><i class="iconfont icon-gerenziliao"></i></div>
+                <div class="grids-txt"><span>个人资料</span></div>
+            </a>
+            <a href="{:__URL('APP_MAIN/PresellOrder/myPresellOrderList')}" class="grids-item">
+                <div class="grids-icon"><i class="iconfont icon-yushou"></i></div>
+                <div class="grids-txt"><span>预售订单</span></div>
+            </a>
+            <a href="{:__URL('APP_MAIN/Member/memberAddress?flag=1')}" class="grids-item">
+                <div class="grids-icon"><i class="iconfont icon-shouhuodizhi"></i></div>
+                <div class="grids-txt"><span>收货地址</span></div>
+            </a>
+            <a href="{:__URL('APP_MAIN/Member/getWchatQrcode')}" class="grids-item">
+                <div class="grids-icon"><i class="iconfont icon-erweima"></i></div>
+                <div class="grids-txt"><span>推广二维码</span></div>
+            </a>
+            <a href="{:__URL('APP_MAIN/Member/memberCoupon')}" class="grids-item">
+                <div class="grids-icon"><i class="iconfont icon-youhuiquan"></i></div>
+                <div class="grids-txt"><span>优惠券</span></div>
+            </a>
+            <a href="{:__URL('APP_MAIN/Verification/myVirtualCode')}" class="grids-item">
+                <div class="grids-icon"><i class="iconfont icon-xunipiaowu"></i></div>
+                <div class="grids-txt"><span>我的虚拟码</span></div>
+            </a>
+            <a href="{:__URL('APP_MAIN/Member/myCollection')}" class="grids-item">
+                <div class="grids-icon"><i class="iconfont icon-shoucang"></i></div>
+                <div class="grids-txt"><span>我的收藏</span></div>
+            </a>
+            <a href="{:__URL('APP_MAIN/Member/newMyPath')}" class="grids-item">
+                <div class="grids-icon"><i class="iconfont icon-zuji"></i></div>
+                <div class="grids-txt"><span>我的足迹</span></div>
+            </a>
+        </div>
+        <div class="m-button">
+            <a class="btn-block btn-hollow" id="logout">退出登录</a>
+        </div>
+    </div>
+    <footer class="m-tabbar">
+        <a href="{:__URL('APP_MAIN')}" class="tabbar-item">
+            <span class="tabbar-icon">
+                <i class="icon-home"></i>
+            </span>
+            <span class="tabbar-txt">首页</span>
+        </a>
+        <a href="{:__URL('APP_MAIN/goods/goodsclassificationlist')}" class="tabbar-item">
+            <span class="tabbar-icon">
+                <i class="icon-type"></i>
+            </span>
+            <span class="tabbar-txt">分类</span>
+        </a>
+        <a href="{:__URL('APP_MAIN/goods/cart')}" class="tabbar-item">
+            <span class="tabbar-icon">
+                <i class="icon-shopcart-outline"></i>
+            </span>
+            <span class="tabbar-txt">购物车</span>
+        </a>
+        <a href="{:__URL('APP_MAIN/member/index')}" class="tabbar-item tabbar-active">
+            <span class="tabbar-icon">
+                <i class="icon-ucenter-outline"></i>
+            </span>
+            <span class="tabbar-txt">个人中心</span>
+        </a>
+    </footer>
+</section>
+{/block}
+{block name="anthonyjs"}
+
+{/block}
+{block name="anthonyjavascript"}
+<script>
+    !function (win, $) {
+        var dialog = win.YDUI.dialog;
+        $('#logout').on('click', function () {
+            dialog.confirm('提示', '是否退出登录？', function () {
+                $.ajax({
+                    url: "{:__URL('APP_MAIN/member/logout')}",
+                    type: "post",
+                    success: function (res) {
+                        if (res['code'] > 0) {
+                            dialog.toast('退出成功', 'success', 2000,function (){
+                                window.location.href=__URL("APP_MAIN/login/index");
+                            });
+                        } else if(res["message"]!=null){
+                            dialog.toast(res["message"], 'error', 2000);
+                        }
+                    }
+                })
+            });
+        });
+    }(window, jQuery);
+</script>
+{/block}

@@ -1,0 +1,53 @@
+.address_list ul li{
+	width: 100%;
+	background-color: #ffffff;
+	padding: 4% 2%;
+	border-bottom: 0.01rem solid #F5F5F5;
+}
+.address_item{
+	width: 100%;
+	overflow: hidden;
+}
+.address_left{
+	width: 20%;
+	float: left;
+	padding-top: 1%;
+}
+.address_mid{
+	width: 60%;
+	float: left;
+}
+.address_right{
+	line-height: 0.8rem;
+	width: 20%;
+	float: left;
+	text-align: center;
+	font-size: 0.2rem;
+	padding-left: 3%;
+}
+.address_name{
+	font-size: 0.18rem;
+	text-align: center;
+}
+.address_more{
+	text-align: center;
+}
+.address_more span{
+	border: 0.01rem  solid #b4282d;
+	font-size: 0.18rem;
+	padding: 1% 3%;
+	color: #b4282d;
+}
+.address_phone,.address_address{
+	font-size: 0.2rem;
+}
+.address_right a{
+	display: inline-block;
+}
+.address_edit{
+	padding-right: 15%;
+}
+.address_right a i{
+	color: #b4282d;
+	font-size: 0.46rem;
+}

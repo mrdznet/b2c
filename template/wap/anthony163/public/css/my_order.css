@@ -1,0 +1,67 @@
+.order_top{
+	overflow: hidden;
+	border-bottom: 0.01rem solid #ccc;
+	padding: 3%;
+}
+.order_list ul .order_list_content{
+	margin-bottom: 2%;
+	padding-bottom: 3%;
+	background-color: #FFFFFF;
+}
+.order_number{
+	color: #333;
+	float: left;
+}
+.order_cancel{
+	color: #333;
+	float: right;
+}
+.order_mid{
+	overflow: hidden;
+}
+.order_img{
+	float: left;
+	width: 30%;
+}
+.order_img img{
+	width: 2rem;
+}
+.order_text{
+	width: 50%;
+	float: left;
+}
+.order_state{
+	width: 20%;
+	float: left;
+	text-align: center;
+}
+.order_name{
+	padding-top: 18%;
+	padding-bottom: 3%;
+	color: #333;
+	font-size: 0.28rem;
+}
+.order_specifications{
+	color: #666;
+	font-size: 0.22rem;
+}
+.order_state p{
+	padding-top: 40%;
+	color: #b4282d;
+	font-size: 0.26rem;
+	padding-left: 5%;
+}
+.order_bottom{
+	overflow: hidden;
+	margin-top: 3%;
+	padding:0 3%;
+}
+.order_should{
+	float: left;
+	font-size: .3rem;
+	padding-top: 2%;
+	padding-left: 4%;
+}
+.order_ul{
+	border-bottom: 0.01rem solid #ccc;
+}

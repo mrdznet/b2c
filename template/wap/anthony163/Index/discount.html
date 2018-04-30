@@ -1,0 +1,40 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/member.css">
+<link rel="stylesheet" type="text/css" href="__TEMP__/{$style}/public/css/aui1.css" />
+{/block}
+{block name="content"}
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a href="index" class="navbar-item"><i class="back-ico"></i></a>
+        <div class="navbar-center"><span class="navbar-title">限时折扣</span></div>
+        <a href="#" class="navbar-item" style="font-size: 26px" tapmode onclick="showPopup('top-right')">
+           <i class="icon-more"></i>    
+        </a>
+    </header>
+    <section class="g-scrollview" id="J_List">
+        <div class="m-slider" data-ydui-slider="{autoplay: 3000}">
+            <div class="slider-wrapper">
+                {niu:adv name="adv" id="1163"  cache="3600" }
+                    {foreach name="adv.adv_list" item="vo"}
+                <div class="slider-item">
+                    <a href="#">
+                        <img src="{:__IMG($vo.adv_image)}">
+                    </a>
+                </div>
+                    {/foreach}
+                {/niu:adv}
+            </div>
+            <div class="slider-pagination"></div>
+        </div>
+        <div id="J_ListContent" class="m-list list-theme4"></div>
+    </section>
+</section>
+<input type="hidden" id="ms_time" value="{$ms_time}"/>
+{/block}
+{block name="anthonyjs"}
+<script type="text/javascript" src="__TEMP__/{$style}/public/js/discount.js"></script>
+{/block}
+{block name="anthonyjavascript"}
+{include file='wap/anthony163/downMenu'/}
+{/block}

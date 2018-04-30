@@ -1,0 +1,29 @@
+{volist name="discount_list" id="vo" key = "k"}
+            {if $k < 2 }
+        <div class="index_discount"  style="margin-top: 3%;">
+            <div class="left_discount">
+                <a href="{:__URL('APP_MAIN/index/discount')}">
+                    <div class="discount_title"><p>严选限时折扣</p></div>
+                    <div class="discount_time">
+                        <span class="discount_time_h" id="hour_show"></span>
+                        <span class="discount_time_mh" >:</span>
+                        <span class="discount_time_f" id="minute_show"></span>
+                        <span class="discount_time_mh">:</span>
+                        <span class="discount_time_s" id="second_show"></span>
+                    </div>
+                    <div class="discount_more"><p>点我查看更多</p></div>
+                </a>
+            </div>
+            <div class="right_discount">
+                <a href="{:__URL('APP_MAIN/goods/goodsdetail?id='.$vo['goods_id'])}">
+                    <img  src="{:__IMG($vo['picture']['pic_cover_small'])}" style="width: 100%;" class="lazy">
+                    <div class="right_discount_text">
+                        <p>￥{$vo.promotion_price}</p>
+                        <p style="text-decoration:line-through;">￥{$vo.price}</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <input type="hidden" value="{$vo.end_time}" id="discount_end">
+            {/if}
+{/volist}

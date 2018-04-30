@@ -1,0 +1,16 @@
+        <div class="m-slider" data-ydui-slider="{autoplay: 3000}">
+            <div class="slider-wrapper">
+{if condition="$plat_adv_list['is_use'] eq 1"}
+	{if condition="$plat_adv_list['adv_list'][0]['adv_image'] neq ''"}
+	{foreach name="plat_adv_list['adv_list']" item="v"}
+                <div class="slider-item">
+                    <a href="{$v.adv_url}">
+                        <img src="{:__IMG($v.adv_image)}" alt="{:lang('carousel_figure')}">
+                    </a>
+                </div>
+    {/foreach}
+	{/if}
+{/if}
+            </div>
+            <div class="slider-pagination"></div>
+        </div>

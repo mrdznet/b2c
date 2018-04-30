@@ -1,0 +1,31 @@
+<script type="text/javascript" src="__TEMP__/{$style}/public/js/api.js" ></script>
+<script type="text/javascript" src="__TEMP__/{$style}/public/js/aui-popup-new.js" ></script>
+<script type="text/javascript">
+var popup = new auiPopup();
+    function showPopup(location){
+        popup.init({
+            frameBounces:true,
+            location:location,
+            buttons:[{
+                text:'首页',
+                url:'{:__URL('APP_MAIN')}',
+                icon:'icon-dingdan'
+            },
+            {
+                text:'分类',
+                url:'{:__URL('APP_MAIN/goods/goodsclassificationlist')}',
+                icon:'icon-erweima'
+            },
+            {
+                text:'购物车',
+                url:'{:__URL('APP_MAIN/goods/cart')}',
+                icon:'icon-xunipiaowu'
+            },
+            {
+                text:'个人中心',
+                url:'{:__URL('APP_MAIN/member/index')}',
+                icon:'icon-dingdan'
+            }],
+        })
+    }
+</script>

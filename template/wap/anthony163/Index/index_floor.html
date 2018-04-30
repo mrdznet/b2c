@@ -1,0 +1,44 @@
+{foreach name="block_list" item="class"}
+
+    {if condition="!empty($class['goods_list']) "}        
+        <div class="floor" style="margin-top: 2%;background-color: #fff">
+            <div class="hd">
+                <span>{$class.category_alias}</span>
+                <div style="font-size: .3rem;color:#333;display: inline-block;"><i class="icon-play"></i></div>
+            </div>
+            <div class="floor_adv">
+                <a href="{:__URL('APP_MAIN/goods/goodslist?category_id='.$class['category_id'])}">
+                    {php}
+                        $arr = json_decode($class['ad_picture'],true);
+                    {/php}
+                    <img src="{:__IMG($arr['picture'])}" class="floor_adv_img">
+                </a>
+            </div>
+                <article class="m-list list-theme1">
+                    {foreach name="class.goods_list" item="list" key='k'}
+                    <a href="{:__URL('APP_MAIN/goods/goodsdetail?id='.$list['goods_id'])}" class="list-item">
+                        <div class="list-img" style="position: relative;">
+                            <img src="{:__IMG($list['pic_cover_small'])}" class="lazy">
+                            <p class="list-img-text">{$list.introduction}</p>
+                        </div>
+                        <div class="list-mes">
+                            <h3 class="list-title">{$list.goods_name}</h3>
+                            <div class="list-mes-item">
+                                <div>
+                                    <span class="list-price"><em>¥</em>{$list.promotion_price}</span>
+                                    <span class="list-del-price">¥{$list.price}</span>
+                                </div>
+                                <div>
+                                    {if $list['shipping_fee'] eq 0 }
+                                    <span class="badge badge-radius badge-danger">包邮</span>
+                                    {/if}
+                                    <!-- <span class="badge badge-radius badge-danger">新品</span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    {/foreach}
+                </article>
+        </div>
+        {/if}
+{/foreach}

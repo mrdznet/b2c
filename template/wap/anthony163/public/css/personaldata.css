@@ -1,0 +1,11 @@
+.my_tx{
+	width: 100%;
+	background-color: #FFFFFF;
+	padding: 2% 0;
+}
+.my_img{
+	margin: 0 auto;
+	border-radius: 2rem;
+	width: 1.26rem;
+	height: 1.26rem;
+}

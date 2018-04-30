@@ -1,0 +1,56 @@
+.portal_tab{
+	background-color: #ffffff;
+    overflow: hidden;
+    width:100%;
+    overflow-x:scroll;
+    overflow-y: hidden;
+    padding: 0.25rem 0;
+}
+.portal_tab ul{
+    width: 20rem;
+}
+.portal_tab ul li{
+    float: left;
+    margin-right: 1%;
+    position: relative;
+    font-size: 0.26rem;
+    margin-left:1.8%;
+    padding-bottom: 0.4%;
+}
+.portal_tab ul .avtive{
+    color: #b4282d;
+    border-bottom: 3px solid #b4282d;
+}
+.portal_list{
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+}
+.portal_content{
+    margin-top: 3%;
+    padding: 0 2%;
+}
+.list_left h1{
+    font-size: .34rem;
+    font-weight: 200;
+    color: #333;
+    padding: 3% 0;
+    padding-left: 3%;
+}
+.list_left p{
+    padding-top: 10%;
+    color: #333;
+    font-size: 0.26rem;
+    padding-left: 3%;
+}
+.list_left{
+    width: 60%;background-color: #ffffff;float: left;
+}
+.list_right{
+    width: 40%;float: left;
+}
+.portal_list ul li{
+    overflow: hidden;
+    margin-top: 4%;
+    background-color: #ffffff;
+}

@@ -1,0 +1,154 @@
+@font-face {
+  font-family: 'demo-icons';
+  src: url('http://at.alicdn.com/t/font_1474965703_1820433.ttf') format('truetype');
+}
+[class^="demo-icons-"]:before,
+[class*=" demo-icons-"]:before {
+  font-family: 'demo-icons';
+  font-size: .5rem;
+}
+.demo-icons-weixin:before {
+  content: '\e60b';
+}
+.demo-icons-me:before {
+  content: '\e610';
+}
+.demo-icons-contact:before {
+  content: '\e60c';
+}
+.demo-icons-discover:before {
+  content: '\e611';
+}
+.demo-icons-phone:before {
+  content: '\e60e';
+}
+.demo-icons-tel:before {
+  content: '\e616';
+}
+.demo-icons-like:before {
+  content: '\e60d';
+}
+.demo-icons-order:before {
+  content: '\e60f';
+}
+.demo-icons-button:before {
+  content: '\e602';
+  color: #FF685E;
+}
+.demo-icons-sendcode:before {
+  content: '\e60a';
+  color: #8B78E2;
+}
+.demo-icons-dialog:before {
+  content: '\e603';
+  color: #3CC51E;
+}
+.demo-icons-keyboard:before {
+  content: '\e613';
+  color: #FC746C;
+}
+.demo-icons-cell:before {
+  content: '\e600';
+  color: #FC746C;
+}
+.demo-icons-tabs:before {
+  content: '\e607';
+  color: #FF8D20;
+}
+.demo-icons-list:before {
+  content: '\e605';
+  color: #FF8D20;
+}
+.demo-icons-actionsheet:before {
+  content: '\e601';
+  color: #3CCD1C;
+}
+.demo-icons-progressbar:before {
+  content: '\e612';
+  color: #FF8D20;
+}
+.demo-icons-icons:before {
+  content: '\e604';
+  color: #8B78E2;
+}
+.demo-icons-tabbar:before {
+  content: '\e606';
+  color: #3CC51E;
+}
+.demo-icons-badge:before {
+  content: '\e608';
+  color: #EF4F4F;
+}
+.demo-icons-grids:before {
+  content: '\e609';
+  color: #8B78E2;
+}
+.demo-icons-slider:before {
+  content: '\e614';
+  color: #8B78E2;
+}
+.demo-icons-spinner:before {
+  content: '\e615';
+  color: #FF8D20;
+}
+.demo-icons-cityselect:before {
+  content: '\e617';
+  color: #FF685E;
+}
+@font-face {
+  font-family: 'demo-category-icons';
+  src: url('http://at.alicdn.com/t/font_1477296366_4593668.ttf') format('truetype');
+}
+[class^="demo-icons-category"]:before,
+[class*=" demo-icons-category"]:before {
+  font-family: 'demo-category-icons';
+  font-size: .48rem;
+  color: #5B5D5C;
+}
+.demo-icons-category1:before {
+  content: '\E604';
+}
+.demo-icons-category2:before {
+  content: '\E602';
+}
+.demo-icons-category3:before {
+  content: '\E605';
+}
+.demo-icons-category4:before {
+  content: '\E603';
+}
+.demo-icons-category5:before {
+  content: '\E607';
+}
+.demo-icons-category6:before {
+  content: '\E600';
+}
+.demo-icons-category7:before {
+  content: '\E606';
+}
+.demo-icons-category8:before {
+  content: '\E601';
+}
+
+/***********css****************/
+.category_content_adv_img{
+  width: 100%;
+}
+.category_content_title p{
+  color: #333;
+  text-align: center;
+  font-size: 0.2rem;
+  padding: 0.3rem 0;
+}
+.category_content_list ul li{
+  display: inline-block;
+  width: 32.4%;
+}
+.category_content_list ul li a img{
+  width: 100%;
+}
+.category_content_list_title{
+  text-align: center;
+  color: #333;
+  font-size: 0.18rem;
+}

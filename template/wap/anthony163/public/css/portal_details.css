@@ -1,0 +1,22 @@
+.content_top{
+	margin: 0 4%;
+	margin-top: 5%;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 3%;
+}
+.content_top h1{
+	font-size: 0.4rem;
+	color: #333;
+}
+.content_top p{
+	color: #333;
+	display: inline-block;
+	padding-right: 5%;
+	padding-top: 3%;
+}
+.content_top span{
+	color: #333;
+}
+.content_content{
+	margin: 2% 4%;
+}

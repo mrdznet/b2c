@@ -1,0 +1,54 @@
+.search{
+    margin-right: .26667rem;
+  }
+  .content{
+      width: 100%;
+      background: #F2F5F4;;
+  }
+  .logo_wrap{ 
+  	text-align:center;
+    padding-top: 1.53333rem;
+    padding-bottom: 0.8rem;
+    
+  }
+ .logo_img{
+  	width: 3.57333rem;
+    height: 1.2rem;
+    margin:0 auto;
+    display:block ;  
+  }
+  .third_wrap{
+    width: 100%;
+    text-align: center;
+  }
+  .third_wrap_title{
+        width: 100%;
+        margin-top:10%
+    }
+    h3.title {
+        font-size: 1.3em;
+        margin-bottom: 5%;
+        text-align: center;
+        font-weight: 500;
+        line-height: 1.1;
+    }
+    h3.title span {
+        display: block; 
+        font-size: 1em;
+        color: #C2C2C2;
+        position: relative; 
+    }
+    h3.title span:before, h3.title span:after {
+        content: '';  
+        position: absolute; 
+        top: 52%;
+        background: #C2C2C2;  
+        width: 20%;
+        height: 1px;
+    }
+    h3.title span:before{
+        left: 12%;   
+    }
+    h3.title span:after {
+        right: 13%;
+    }

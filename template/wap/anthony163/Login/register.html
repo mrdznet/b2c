@@ -1,0 +1,66 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/register.css">
+{/block}
+{block name="content"}
+ <section class="g-flexview">
+    <header class="m-navbar">
+        <a href="{:__URL('APP_MAIN')}" class="navbar-item" style="font-size: 26px">
+            <i class="icon-home-outline"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">注册</span>
+        </div>
+        <div class="navbar-item">
+                <a href="{:__URL('APP_MAIN/Login/index')}" class="search" >返回登录</a>        
+            </div>
+    </header>
+    <div class="g-scrollview">
+    <div class="content">
+            <div class="logo_wrap">
+                    <img  class="logo_img" src="__TEMP__/{$style}/public/images/logoWrap.png"/>           
+                </div>
+         <div class="m-cell">
+            <div class="cell-item">         
+                <div class="cell-right"><input type="text" class="cell-input" id="mobile" name="mobile" placeholder="请输入手机号码" /> </div>
+            </div>
+            <div class="cell-item">            
+                <div class="cell-right">
+                    <input type="text" class="cell-input" placeholder="请输入验证码"  name="captcha" id="captcha" />
+                    <img class="lazy"  src="{:__URL('SHOP_MAIN/captcha')}" onclick="this.src='{:__URL('SHOP_MAIN/captcha')}'" />
+                </div>
+            </div>
+            <div class="cell-item">              
+                <div class="cell-right">
+                    <input type="text" name="motify" class="cell-input" placeholder="请输入短信验验证" id="verify_code" />
+                    <button type="button" class="btn btn-warning" id="sendOutCode">获取短信验证码</button>
+                </div>
+            </div>
+            <div class="cell-item">
+                    <div class="cell-right"><input type="password" name="password" id="password_mobile" class="cell-input" placeholder="请输入密码" /></div>
+            </div>
+            <div class="cell-item">
+                    <div class="cell-right"><input type="password" name="cfpassword" id="cfpassword_mobile" class="cell-input" placeholder="请输入确认密码" /></div>
+            </div>                   
+        </div>
+        <div class="m-button">
+            <button type="submit" class="btn-block btn-primary" onclick="register_mobile()">注册</button>
+        </div>
+        <div class="m-tips">
+            用户注册即代表同意<a class="tip" href="#">《服务条款》</a>和<a class="tip" href="#">《网易隐私政策》</a>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="mobile_is_has" value="1">
+<input type="hidden" id="pwd_len" value="{$reg_config.pwd_len}">
+<input type="hidden" id="pwd_complexity" value="{$reg_config.pwd_complexity}">
+<input type="hidden" id="name_keyword" value="{$reg_config.name_keyword}">
+</section>
+{/block}
+
+{block name="anthonyjs"}
+<script src="__TEMP__/{$style}/public/js/register.js"></script>
+{/block}
+{block name="anthonyjavascript"}
+
+{/block}

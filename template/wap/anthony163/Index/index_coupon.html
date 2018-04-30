@@ -1,0 +1,23 @@
+<div class="index_yhq" style="margin-top: 3%;">
+            <div class="hd">
+                <span>优惠券</span>
+                <div style="font-size: .3rem;color:#333;display: inline-block;"><i class="icon-play"></i></div>
+            </div>
+            <div class="index_yhq_list">
+                <ul>
+                	{volist name="coupon_list" id="vo" }
+                    <li onclick="getCoupon(this,{$vo.coupon_type_id})" data-max-fetch="{$vo.max_fetch}" data-received-num="{if !empty($uid)}{$vo.received_num}{else/}0{/if}">
+                        <a href="javascript:;">
+                            <div class="yhq_content">
+                            	{php}
+                            		$num =  (int)$vo['money'];
+                            	{/php}
+                                    <p class="yhq_price">{$num}</p>
+                                    <p class="yhq_explain">满{$vo.at_least}使用</p>
+                            </div>
+                        </a>
+                    </li>
+                    {/volist}
+                </ul>
+            </div>
+</div>

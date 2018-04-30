@@ -1,0 +1,86 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/personaldata.css">
+{/block}
+{block name="content"}
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a href="index.html" class="navbar-item" style="font-size: 26px">
+           <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">个人资料</span>
+        </div>
+    </header>
+    <div class="g-scrollview">
+        <div class="my_tx">
+            {if condition="$member_img neq '' and $member_img neq '0'"}
+            <a href=""><img src="{:__IMG($member_img)}" class="my_img"></a>
+            {else /}
+            <a href=""><img src="{:__IMG($default_headimg)}" class="my_img"/></a>
+            {/if}
+        </div>
+            <div class="m-cell">
+                <div class="cell-item">
+                    <div class="cell-left">账号</div>
+                    <div class="cell-right">{$member_info.user_info.user_name}</div>
+                </div>
+                <div class="cell-item">
+                    <div class="cell-left">昵称</div>
+                    <div class="cell-right cell-arrow" onclick="nickname()" id="nickname">{$member_info.user_info.nick_name}</div>
+                </div>
+                <div class="cell-item">
+                    <div class="cell-left">密码</div>
+                    <div class="cell-right cell-arrow">修改密码</a></div>
+                </div>
+                <div class="cell-item">
+                    <div class="cell-left">手机</div>
+                    {if condition="$member_info.user_info.user_tel neq ''"}
+                    <div class="cell-right cell-arrow">{$member_info.user_info.user_tel}</div>
+                    {else/}
+                    <div class="cell-right cell-arrow">{:lang('bind_mobile_phone_number')}</div>
+                    {/if}
+                </div>
+                <div class="cell-item">
+                    <div class="cell-left">QQ</div>
+                    {if condition="$member_info.user_info.user_qq neq ''"}
+                    <div class="cell-right cell-arrow">{$member_info.user_info.user_qq}</div>
+                    {else/}
+                    <div class="cell-right cell-arrow">暂未填写</div>
+                    {/if}
+                </div>
+                <div class="cell-item">
+                    <div class="cell-left">邮箱</div>
+                    {if condition="$member_info.user_info.user_email neq ''"}
+                    <div class="cell-right cell-arrow">{$member_info.user_info.user_email}</div>
+                    {else/}
+                    <div class="cell-right cell-arrow">暂未填写</div>
+                    {/if}
+                </div>
+                <div class="cell-item">
+                    <div class="cell-left">第三方绑定</div>
+                    <div class="cell-right cell-arrow"><span style="font-size: 40px;color:#1C86EE;"><i class="icon-qq"></i></span></div>
+                </div>
+            </div>
+    </div>
+</section>
+<div id="update_nickname" style="display: none;">
+<div class="m-cell">
+    <div class="cell-item">
+        <div class="cell-left">昵称：</div>
+        <div class="cell-right"><input type="text" class="cell-input" id="input_nick_name" placeholder="{:lang('please_enter_your_nickname')}" value='{$member_info.user_info.nick_name}'/></div>
+    </div>
+</div>
+    <div class="m-button">
+        <a href="javascript:;" class="btn-block btn-primary" onclick="xg_nickname()">修改</a>
+        <a href="javascript:;" class="btn-block btn-danger" onclick="layer.closeAll();">返回</a>
+    </div>
+</div>
+{/block}
+{block name="anthonyjs"}
+<script src="__TEMP__/{$style}/public/js/layer.js"></script>
+<script src="__TEMP__/{$style}/public/js/personaldata.js"></script>
+{/block}
+{block name="anthonyjavascript"}
+
+{/block}

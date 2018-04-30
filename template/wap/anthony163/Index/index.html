@@ -1,0 +1,98 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/index.css">
+{/block}
+{block name="content"}
+<!-- 头部-->
+    <header class="m-navbar navbar-fixed" style="background-color: #fff;z-index: 10; padding: 0 0.1rem;">
+        <div class="box1">
+            <div class="logo">
+                <a>
+                    <img src="__TEMP__/{$style}/public/images/index_logo.png" alt="">
+                </a>
+            </div>
+            <div class="line">
+                <i class="icon_one">
+                    <img src="__TEMP__/{$style}/public/images/one.png" alt="">
+                </i>
+                <input type="text" placeholder="{:lang('search_goods')}" id="text_ico">
+                <input type="hidden" value="{$shop_id}" id="hidden_shop_id"/>
+                <span class="icon_tow">取 消</span>
+            </div>
+        </div>
+    </header>
+<div class="g-view">
+    <!-- 轮播-->
+    {include file='wap/anthony163/Index/index_slider'/}
+    <div class="icon_text">
+        <ul>
+            <li><i class="icon-checkoff" style="color:#FF685D;font-size: .26rem;"></i>网易自营品牌</li>
+            <li><i class="icon-like" style="color:#FF685D;font-size: .26rem;"></i>只为挑剔的你</li>
+            <li><i class="icon-phone2" style="color:#FF685D;font-size: .26rem;"></i>只为挑剔的你</li>
+        </ul>
+     </div>
+    <!-- 导航 -->
+    {include file='wap/anthony163/Index/index_nav'/}
+    <!-- 优惠券-->
+    {include file='wap/anthony163/Index/index_coupon'/}
+    <!--限时折扣-->
+    {include file='wap/anthony163/Index/index_discount'/}
+    <!--专题-->
+    {include file='wap/anthony163/Index/index_topic'/}
+    <!-- 楼层-->
+    {include file='wap/anthony163/Index/index_floor'/}
+    <!--底部版权-->
+    <div class="footer_bottom">
+        <div class="bottom_top">
+            <a href="" class="go_login">去登录</a>
+            <a href="" class="go_pc">电脑版</a>
+        </div>
+        <div class="bottom_bottom">
+            <p>网易公司版权所有 © 1997-2099</p>
+        </div>
+    </div>
+</div>  
+    <footer class="m-tabbar tabbar-fixed">
+        <a href="{:__URL('APP_MAIN')}" class="tabbar-item tabbar-active">
+            <span class="tabbar-icon">
+                <i class="icon-home"></i>
+            </span>
+            <span class="tabbar-txt">首页</span>
+        </a>
+        <a href="{:__URL('APP_MAIN/goods/goodsclassificationlist')}" class="tabbar-item">
+            <span class="tabbar-icon">
+                <i class="icon-type"></i>
+            </span>
+            <span class="tabbar-txt">分类</span>
+        </a>
+        <a href="{:__URL('APP_MAIN/goods/cart')}" class="tabbar-item">
+            <span class="tabbar-icon">
+                <i class="icon-shopcart-outline"></i>
+            </span>
+            <span class="tabbar-txt">购物车</span>
+        </a>
+        <a href="{:__URL('APP_MAIN/member/index')}" class="tabbar-item">
+            <span class="tabbar-icon">
+                <i class="icon-ucenter-outline"></i>
+            </span>
+            <span class="tabbar-txt">个人中心</span>
+        </a>
+    </footer>
+{/block}
+
+{block name="anthonyjs"}
+<script src="__TEMP__/{$style}/public/js/index.js"></script>
+{/block}
+{block name="anthonyjavascript"}
+<script>
+$(function () {
+    timer(intDiff);
+    $("#text_ico").focus(function () {
+            $(".icon_tow").show();
+        })
+    $("#text_ico").blur(function () {
+            $(".icon_tow").hide();
+        })
+    });
+</script>
+{/block}

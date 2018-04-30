@@ -1,0 +1,140 @@
+.orderdetails_info{
+	background-color: #ffffff;
+	overflow: hidden;
+	width: 100%
+}
+.orderdetails_info_left{
+	padding: 3%;
+	float: left;
+	width: 80%;
+}
+.orderdetails_info_left p{
+	font-size: 0.28rem;
+	color: #333;
+}
+.orderdetails_info_right{
+	padding: 3%;
+	text-align: center;
+	font-size: 0.5rem;
+	float: left;
+	width: 20%;
+}
+.orderdetails_goods{
+	margin-top: 1%;
+	background-color: #ffffff;
+	width: 100%;
+	overflow: hidden;
+}
+.orderdetails_goods_top{
+	overflow: hidden;
+	padding:3%;
+	border-bottom: 0.01rem solid #F5F5F5;
+}
+.orderdetails_goods_top span{
+	float: right;
+	font-size: 0.28rem;
+	color: #b4282d;
+}
+.orderdetails_goods_content ul li{
+	overflow: hidden;
+	width: 100%;
+}
+.orderdetails_goods_left{
+	float: left;
+	width: 80%;
+	overflow: hidden;
+}
+.orderdetails_goods_right{
+	float: left;
+	width: 20%;
+	text-align: center;
+}
+.orderdetails_goods_right p{
+	font-size: 0.28rem;
+	line-height: 2rem;
+}
+.orderdetails_goods_img{
+	float: left;
+}
+.orderdetails_goods_img img{
+	width: 2rem;
+	height: 2rem;
+}
+.orderdetails_goods_text{
+	padding: 6%;
+	float: left;
+}
+.orderdetails_goods_text p{
+	padding-bottom: 2%;
+}
+.orderdetails_goods_title,.orderdetails_goods_cash{
+	font-size: 0.28rem;
+	color: #333;
+}
+.orderdetails_goods_sku{
+	font-size: 0.24rem;
+	color: #666666;
+}
+.orderdetails_infomation{
+	padding: 3%;
+	margin-top: 2%;
+	width: 100%;
+	background-color: #ffffff;
+}
+.orderdetails_address{
+	border-bottom: 0.01rem solid #F5F5F5;
+	padding-bottom: 3%;
+}
+.orderdetails_address span{
+	font-size: 0.3rem;
+	padding: 0 5%;
+	color: #333;
+}
+.orderdetails_address p{
+	color: #666666;
+	font-size: 0.26rem;
+	padding: 2% 5% 0;
+}
+.orderdetails_and{
+	border-bottom: 0.01rem solid #F5F5F5;
+	padding-bottom: 3%;	
+}
+.orderdetails_and p{
+	color: #333;
+	font-size: 0.28rem;
+	padding: 1% 5%;
+}
+.orderdetails_num{
+
+}
+.orderdetails_num p{
+	color:#b4282d;
+	font-size: 0.28rem;
+	padding: 3% 5% 0;
+}
+.orderdetails_kf{
+	background-color: #ffffff;
+	width: 100%;
+	margin-top: 2%;
+	text-align: center;
+	padding: 3%;
+}
+.online_kf{
+	width: 3rem;
+	height: 0.8rem;
+	border: 0.01rem solid #ccc;
+	display: inline-block;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	color: #666666;
+	margin-right: 5%;
+}
+.phone_kf{
+	width: 3rem;
+	height: 0.8rem;
+	border: 0.01rem solid #ccc;
+	display: inline-block;
+	line-height: 0.8rem;
+	font-size: 0.3rem;
+	color: #666666;
+}

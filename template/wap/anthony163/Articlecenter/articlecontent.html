@@ -1,0 +1,41 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/portal_details.css">
+<link rel="stylesheet" type="text/css" href="__TEMP__/{$style}/public/css/aui1.css" />
+{/block}
+{block name="content"}
+<style type="text/css">
+.content_content img{
+    width: 100%;
+}
+</style>
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a href="index.html" class="navbar-item" style="font-size: 26px">
+           <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">文章内容</span>
+        </div>
+        <a href="#" class="navbar-item" style="font-size: 26px" tapmode onclick="showPopup('top-right')">
+           <i class="icon-more"></i>    
+        </a>
+    </header>
+    <div class="g-scrollview" style="background-color: #ffffff;">
+       <div class="content_top">
+           <h1>{$article_info.title}</h1>
+           <p>{$article_info.author}</p>
+           <span>{$article_info.create_time|date="Y-m-d H:i:s",###}</span>
+       </div>
+       <div class="content_content">
+           {$article_info.content}
+       </div>
+    </div>
+</section>
+{/block}
+{block name="anthonyjs"}
+{/block}
+{block name="anthonyjavascript"}
+
+{include file='wap/anthony163/downMenu'/}
+{/block}
