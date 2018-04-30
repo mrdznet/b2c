@@ -1,0 +1,193 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/my_order.css">
+{/block}
+{block name="content"}
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a href="{:__URL('APP_MAIN/member/')}" class="navbar-item" style="font-size: 26px">
+           <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">我的订单</span>
+        </div>
+    </header>
+    <div class="g-scrollview">
+        <div class="m-tab">
+            <ul class="tab-nav" id="tab">
+                <li class="tab-nav-item tab-active" statusid="all"><a href="javascript:;">全部</a></li>
+                <li class="tab-nav-item" statusid="0"><a href="javascript:;" >待付款</a></li>
+                <li class="tab-nav-item" statusid="1"><a href="javascript:;">待发货</a></li>
+                <li class="tab-nav-item" statusid="2"><a href="javascript:;">待收货</a></li>
+                <li class="tab-nav-item" statusid="4"><a href="javascript:;">退款/售后</a></li>
+            </ul>
+            <div class="tab-panel" style="background-color: #F5F5F5;">
+                <div class="tab-panel-item tab-active">
+                    <div class="order_list">
+                        <ul>
+                            <li class="order_list_content">
+                                <div class="order_top">
+                                    <p class="order_number">订单号：2018042222470001</p>
+                                    <span class="order_cancel" id="J_Confirm">取消订单</span>
+                                </div>
+                                <ul class="order_ul">
+                                    <li class="order_goods">
+                                        <div class="order_mid">
+                                            <div class="order_img">
+                                                <img src="images/my_order1.png">
+                                            </div>
+                                            <div class="order_text">
+                                                <a href="orderdetails.html">
+                                                <p class="order_name">纯牛奶 250毫升*12盒*2提</p>
+                                                <p class="order_specifications">12盒*2提</p>
+                                                </a>
+                                            </div>
+                                            <div class="order_state">
+                                                <p>待付款</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="order_goods">
+                                        <div class="order_mid">
+                                            <div class="order_img">
+                                                <img src="images/my_order1.png">
+                                            </div>
+                                            <div class="order_text">
+                                                <p class="order_name">纯牛奶 250毫升*12盒*2提</p>
+                                                <p class="order_specifications">12盒*2提</p>
+                                            </div>
+                                            <div class="order_state">
+                                                <p>待付款</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="order_bottom">
+                                    <p class="order_should">应付：999</p>
+                                    <a href="javascript:;" class="btn btn-danger" style="float: right;">付款</a>
+                                </div>
+                            </li>
+
+                            <li class="order_list_content">
+                                <div class="order_top">
+                                    <p class="order_number">订单号：2018042222470123</p>
+                                    <span class="order_cancel">取消订单</span>
+                                </div>
+                                <ul class="order_ul">
+                                    <li class="order_goods">
+                                        <div class="order_mid">
+                                            <div class="order_img">
+                                                <img src="images/my_order1.png">
+                                            </div>
+                                            <div class="order_text">
+                                                <p class="order_name">纯牛奶 250毫升*12盒*2提</p>
+                                                <p class="order_specifications">10盒*2提</p>
+                                            </div>
+                                            <div class="order_state">
+                                                <p>已付款</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="order_bottom">
+                                    <p class="order_should">应付：999</p>
+                                    <a href="javascript:;" class="btn btn-danger" style="float: right;">付款</a>
+                                </div>
+                            </li>
+                            <li class="order_list_content">
+                                <div class="order_top">
+                                    <p class="order_number">订单号：2018042222470123</p>
+                                    <span class="order_cancel">取消订单</span>
+                                </div>
+                                <ul class="order_ul">
+                                    <li class="order_goods">
+                                        <div class="order_mid">
+                                            <div class="order_img">
+                                                <img src="images/my_order1.png">
+                                            </div>
+                                            <div class="order_text">
+                                                <p class="order_name">纯牛奶 250毫升*12盒*2提</p>
+                                                <p class="order_specifications">10盒*2提</p>
+                                            </div>
+                                            <div class="order_state">
+                                                <p>已付款</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="order_bottom">
+                                    <p class="order_should">应付：999</p>
+                                    <a href="javascript:;" class="btn btn-danger" style="float: right;">付款</a>
+                                </div>
+                            </li>
+                            <li class="order_list_content">
+                                <div class="order_top">
+                                    <p class="order_number">订单号：2018042222470123</p>
+                                    <span class="order_cancel">取消订单</span>
+                                </div>
+                                <ul class="order_ul">
+                                    <li class="order_goods">
+                                        <div class="order_mid">
+                                            <div class="order_img">
+                                                <img src="images/my_order1.png">
+                                            </div>
+                                            <div class="order_text">
+                                                <p class="order_name">纯牛奶 250毫升*12盒*2提</p>
+                                                <p class="order_specifications">10盒*2提</p>
+                                            </div>
+                                            <div class="order_state">
+                                                <p>已付款</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="order_bottom">
+                                    <p class="order_should">应付：999</p>
+                                    <a href="javascript:;" class="btn btn-danger" style="float: right;">付款</a>
+                                </div>
+                            </li>
+                            <li class="order_list_content">
+                                <div class="order_top">
+                                    <p class="order_number">订单号：2018042222470123</p>
+                                    <span class="order_cancel">取消订单</span>
+                                </div>
+                                <ul class="order_ul">
+                                    <li class="order_goods">
+                                        <div class="order_mid">
+                                            <div class="order_img">
+                                                <img src="images/my_order1.png">
+                                            </div>
+                                            <div class="order_text">
+                                                <p class="order_name">纯牛奶 250毫升*12盒*2提</p>
+                                                <p class="order_specifications">10盒*2提</p>
+                                            </div>
+                                            <div class="order_state">
+                                                <p>已付款</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="order_bottom">
+                                    <p class="order_should">应付：999</p>
+                                    <a href="javascript:;" class="btn btn-danger" style="float: right;">付款</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<input type="hidden" name="status_hidden" id="status_hidden" value="{$status}"/>
+<input type="hidden" name="shop_id" id="shop_id" value="{$shop_id}"/>
+<input type="hidden" id="page_count"><!-- 总页数 -->
+<input type="hidden" id="page" value="1"><!-- 当前页数 -->
+<input type="hidden" id="status" value="all">
+{/block}
+{block name="anthonyjs"}
+<script type="text/javascript" src="__TEMP__/{$style}/public/js/my_order.js"></script>
+{/block}
+{block name="anthonyjavascript"}
+
+{/block}

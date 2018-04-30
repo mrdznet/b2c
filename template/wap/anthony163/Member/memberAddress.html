@@ -1,0 +1,123 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/address.css">
+{/block}
+{block name="content"}
+<input type="hidden" id="ref_url" value="{$pre_url}">
+<input type="hidden" value="{$flag}" id="hidden_flag" />
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a href="index.html" class="navbar-item" style="font-size: 26px">
+           <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">收货地址</span>
+        </div>
+    </header>
+    <div class="g-scrollview">
+        <div class="address_list">
+            <ul>
+                {foreach name="list.data" item="address" key="k"}
+                <li>
+                    <div class="address_item">
+                        <div class="address_left">
+                            <p class="address_name" onclick='selectAddress({$address.id},this,{$address.is_default})'>{$address.consigner}</p>
+                            {if condition="$address.is_default eq '1'"}
+                            <p class="address_more"><span>默认</span></p>
+                            {/if}
+                        </div>
+                        <div class="address_mid" onclick='selectAddress({$address.id},this,{$address.is_default})'>
+                            <p class="address_phone">{$address.mobile}</p>
+                            <p class="address_address">{$address.address}</p>
+                        </div>
+                        <div class="address_right">
+                            <a href="{:__URL('APP_MAIN/member/updatememberaddress?id='.$address['id'].'&flag='.$flag)}" class="address_edit"><i class="icon-compose"></i></a>
+                            {if condition="count($list['data']) gt 1"}
+                            <a href="javascript:void(0);" class="address_del" onclick="address_delete({$address.id},{$address.is_default});"><i class="icon-delete"></i></a>
+                            {/if}
+                        </div>
+                    </div>
+                </li>
+                {/foreach}
+            </ul>
+        </div>
+    {if condition = "count($list.data) eq 0"}
+        <div class="list-donetip">暂无数据</div>
+    {/if}
+    </div>
+    <footer>
+        <a href="{:__URL('APP_MAIN/Member/addMemberAddress?flag='.$flag)}" class="btn-block btn-hollow" style="color: #b4282d;">+ 新建收货地址</a>
+    </footer>
+</section> 
+{/block}
+{block name="anthonyjs"}
+
+{/block}
+{block name="anthonyjavascript"}
+<script>
+!function (win, $) {
+    var dialog = win.YDUI.dialog;
+
+    win.selectAddress=function(id,obj,mr){
+        var ref_url = '{$url}';
+        var flag = "{$flag}";
+        var mr = mr;
+        if (mr == 1) {
+            return false
+        }else{
+         dialog.confirm('提示', '是否设置成默认收货地址？', function (){
+                $.ajax({
+                    url: "{:__URL('APP_MAIN/member/updateaddressdefault')}",
+                    data: { "id": id },
+                    type: "post",
+                    success: function (res) {
+                        if (res["code"] > 0) {
+                            dialog.toast("设置默认收货地址成功", 'success', 1000);
+                            window.location.reload();
+                            if(flag == "1"){
+                                return;
+                            }else if(flag == "2"){
+                                window.location.href = __URL("APP_MAIN/member/toReceiveThePrize");
+                                return;
+                            }else if(flag == "4"){
+                                window.location.href = __URL("APP_MAIN/PintuanOrder/paymentorder");
+                                return;
+                            }
+                            if(ref_url == 'cart'){
+                                window.location.href = __URL("APP_MAIN/order/paymentorder");
+                            }else{
+                                window.location.reload();
+                            }
+                        }else{
+                            dialog.toast(res["message"], 'error', 1000);
+                        }
+                    }
+                })
+            })
+         }
+    }
+    win.address_delete=function(id,is_default){
+        if(is_default == 1){
+            dialog.toast("默认地址不能删除", 'error', 1000);
+            return;
+        }
+         dialog.confirm('提醒', '是否删除地址', function () {
+            $.ajax({
+                url: "{:__URL('APP_MAIN/member/memberaddressdelete')}",
+                data: { "id": id },
+                type: "post",
+                success: function (res) {
+                    if (res["code"] == 1) {
+                         dialog.toast("{:lang('member_delete_successfully')}!", 'none', 1000);
+                         window.location.reload();
+                    } else {
+                        dialog.toast(res["outmessage"], 'error', 1000);
+                    }
+                }
+            })
+        });
+    }
+}(window, jQuery);
+
+</script>
+{/block}

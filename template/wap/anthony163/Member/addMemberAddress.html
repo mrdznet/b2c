@@ -1,0 +1,51 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+{/block}
+{block name="content"}
+<input type="hidden" id="ref_url" value="{$pre_url}">
+<input type="hidden" value="{$flag}" id="hidden_flag" />
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a href="index.html" class="navbar-item" style="font-size: 26px">
+           <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">新建地址</span>
+        </div>
+    </header>
+    <div class="g-scrollview">
+        <div class="m-cell">
+            <div class="cell-item">
+                <div class="cell-left">名字：</div>
+                <div class="cell-right"><input type="text"  class="cell-input" placeholder="请输入姓名" id="Name"/></div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">手机号：</div>
+                <div class="cell-right"><input type="text" class="cell-input" placeholder="请输入手机号" id="Moblie"/></div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">固定电话：</div>
+                <div class="cell-right"><input type="text" class="cell-input" placeholder="选填" id="phone" /></div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">省市区：</div>
+                <div class="cell-right"><input type="text" class="cell-input" readonly id="J_Address" placeholder="请选择收货地址"/></div>
+            </div>
+            <div class="cell-item">
+                <div class="cell-left">详细地址：</div>
+                <div class="cell-right"><input type="text" class="cell-input"  placeholder="请输入详细地址" id="AddressInfo"/></div>
+            </div>
+        </div>
+        <div class="m-button">
+            <a class="btn-block btn-danger" onclick="saveAddress()">保存</a>
+        </div>
+    </div>
+</section>    
+{/block}
+{block name="anthonyjs"}
+<script src="__TEMP__/{$style}/public/js/ydui.citys.js"></script>
+<script src="__TEMP__/{$style}/public/js/add_address.js"></script>
+{/block}
+{block name="anthonyjavascript"}
+
+{/block}

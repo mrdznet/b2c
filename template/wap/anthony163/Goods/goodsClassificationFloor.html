@@ -1,0 +1,59 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/category.css">
+<link rel="stylesheet" type="text/css" href="__TEMP__/{$style}/public/css/aui1.css" />
+{/block}
+{block name="content"}
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a href="javascript:window.history.go(-1)" class="navbar-item"><i class="back-ico"></i></a>
+        <div class="navbar-center"><span class="navbar-title">分类</span></div>
+        <a class="navbar-item" style="font-size: 26px" tapmode onclick="showPopup('top-right')">
+           <i class="icon-more"></i>    
+        </a>
+    </header>
+    <div class="g-scrollview">
+        <div class="m-scrolltab" data-ydui-scrolltab>
+            <div class="scrolltab-nav">
+                {foreach name="goods_category_list" item="vo" key="k"}
+                <a href="javascript:;" class="scrolltab-item">
+                    <div class="scrolltab-title">{$vo.short_name}</div>
+                </a>
+                {/foreach}
+            </div>
+            <div class="scrolltab-content">
+                {foreach name="goods_category_list" item="vo" key="k"}
+                <div class="scrolltab-content-item" {if $k gt 0}style="margin-top: 10%;"{/if}>
+                    <div class="category_content">
+                        <div class="category_content_adv">
+                            <a href="{:__URL('APP_MAIN/goods/goodslist','category_id='.$vo['category_id'])}"><img src="{:__IMG($vo.category_pic)}" class="category_content_adv_img lazy" ></a>
+                        </div>
+                        <div class="category_content_title">
+                            <p>{$vo.category_name}</p>
+                        </div>
+                        <div class="category_content_list">
+                            <ul>
+                                {foreach name="$vo['child_list']" item="so"}
+                                <li>
+                                    <a href="{:__URL('APP_MAIN/goods/goodslist','category_id='.$so['category_id'])}">
+                                        <img  src="{:__IMG($so.category_pic)}">
+                                        <p class="category_content_list_title">{$so.category_name}</p>
+                                    </a>
+                                </li>
+                                {/foreach}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {/foreach}
+            </div>
+        </div>
+    </div>
+</section>
+{/block}
+{block name="anthonyjs"}
+<script type="text/javascript" src="__TEMP__/{$style}/public/js/my_order.js"></script>
+{/block}
+{block name="anthonyjavascript"}
+{include file='wap/anthony163/downMenu'/}
+{/block}
