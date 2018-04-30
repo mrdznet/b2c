@@ -1713,7 +1713,6 @@ class Goods extends BaseController
     	}
     	$promotion = new Promotion();
     	$topic_goods = $promotion->getPromotionTopicDetail($topic_id);
-    	//     	dump($topic_goods);
     	$this->assign('info',$topic_goods);
     	return view($this->style.'Goods/'.$topic_goods['wap_topic_template']);
     }

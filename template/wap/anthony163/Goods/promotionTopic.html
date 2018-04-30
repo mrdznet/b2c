@@ -1,0 +1,50 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/topic.css">
+<link rel="stylesheet" type="text/css" href="__TEMP__/{$style}/public/css/aui1.css" />
+{/block}
+{block name="content"}
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a href="index.html" class="navbar-item" style="font-size: 26px">
+           <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">专题列表</span>
+        </div>
+        <a href="#" class="navbar-item" style="font-size: 26px" tapmode onclick="showPopup('top-right')">
+           <i class="icon-more"></i>    
+        </a>
+    </header>
+    <div class="g-scrollview">
+        <div class="topic_content">
+            <ul>
+                {foreach name="info['data']" id="v"}
+                <li>
+                    <div class="topic_adv"><a href="{:__URL('APP_MAIN/goods/promotionTopicGoods','topic_id='.$v['topic_id'])}"><img class="lazy" src="{:__IMG($v['picture_img'])}" width="100%"></a></div>
+                    <div class="topic_text">
+                        <h3><a href="topic_details.html">{$v['topic_name']}</a></h3>
+                        <div class="topic_text_bottom">
+                        <p class="topic_keyword">{$v['keyword']}</p>
+                        {php}
+                        $startdate=time();
+                        $enddate=$v['end_time'];
+                        $date=floor(($enddate-$startdate)/86400);
+                        {/php}
+                        <span class="topic_time"><i class="icon-time"></i>剩下{$date}天</span>
+                        </div>
+                    </div>
+                </li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+</section>
+<input type="hidden" id="brand_id" >
+{/block}
+{block name="anthonyjs"}
+{/block}
+{block name="anthonyjavascript"}
+
+{include file='wap/anthony163/downMenu'/}
+{/block}

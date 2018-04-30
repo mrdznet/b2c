@@ -1,0 +1,60 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/topic_details.css">
+<link rel="stylesheet" type="text/css" href="__TEMP__/{$style}/public/css/aui1.css" />
+{/block}
+{block name="content"}
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a href="index.html" class="navbar-item" style="font-size: 26px">
+           <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">专题详情</span>
+        </div>
+        <a href="#" class="navbar-item" style="font-size: 26px" tapmode onclick="showPopup('top-right')">
+           <i class="icon-more"></i>    
+        </a>
+    </header>
+    <div class="g-scrollview">
+        <div class="topic_details_adv">
+            <img src="{:__IMG($info['background_img'])}" width="100%">
+        </div>
+        <div class="topic_details_ms">
+            {$info.desc}
+        </div>
+        <article class="m-list list-theme3" style="margin-top: 2%;">
+            {foreach name="info['goods_list']" id="v"}
+            <a href="{:__URL('APP_MAIN/goods/goodsinfo?goodsid='.$v['goods_id'])}" class="list-item">
+                <div class="list-img">
+                    <img src="{:__IMG($v['picture_info']['pic_cover_small'])}" alt="{$v['goods_name']}">
+                </div>
+                <div class="list-mes">
+                    <h3 class="list-title">{$v['goods_name']}</h3>
+                    <div class="list-mes-item">
+                        <div>
+                            {in name="$v.point_exchange_type" value="0,2"}
+                            <span class="list-price"><em>¥</em>{$v['price']}</span>
+                            {else/}
+                                {if $v['point_exchange_type'] == 1 && $v['promotion_price'] > 0}
+                                <span class="list-price"><em>¥</em>{$v['price']}</span>
+                                {else/}
+                                <span class="list-price">{$v.point_exchange}积分</span>
+                                {/if}
+                            {/in}
+                        </div>
+                        
+                    </div>
+                </div>
+            </a>
+            {/foreach}
+        </article>
+    </div>
+</section>
+{/block}
+{block name="anthonyjs"}
+{/block}
+{block name="anthonyjavascript"}
+
+{include file='wap/anthony163/downMenu'/}
+{/block}
