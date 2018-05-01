@@ -2,24 +2,26 @@ $(function(){
     getlist();
     countDown();
 })
-
+var is_load =true;
  function getlist(){
         var page = 1, pageSize = 14;
         var loadMore = function (callback) {
-            $.ajax({
-               type : "get",
-                url:__URL(APPMAIN+'/Index/discount'),
-                dataType:'json',
-                data: {
-                    category_id:0,
-                    page: page,
-                    pagesize: pageSize
-                },
-                success: function (ret) {
-                    console.log(ret);
-                    typeof callback == 'function' && callback(ret.data);
-                }
-            });
+            if (is_load) {
+                $.ajax({
+                   type : "get",
+                    url:__URL(APPMAIN+'/Index/discount'),
+                    dataType:'json',
+                    data: {
+                        category_id:0,
+                        page: page,
+                        pagesize: pageSize
+                    },
+                    success: function (ret) {
+                        console.log(ret);
+                        typeof callback == 'function' && callback(ret.data);
+                    }
+                });
+            }
         };
 
         $('#J_List').infiniteScroll({
@@ -35,7 +37,7 @@ $(function(){
                         for (var i = 0; i < list.length; i++) {
                             var html = html+'<a href="'+__URL(APPMAIN+'/goods/goodsdetail?id='+list[i]['goods_id'])+'" class="list-item">'
                                         +'<div class="list-img">'
-                                        +'<img src="'+__IMG(list[i].picture.pic_cover_small)+'">'
+                                        +'<img src="http://static.ydcss.com/uploads/ydui/goods_default.jpg" data-url="'+__IMG(list[i].picture.pic_cover_small)+'">'
                                         +'</div>'
                                         +'<div class="list-mes">'
                                         +'<h3 class="list-title">'+list[i].goods_name+'</h3>'
@@ -50,12 +52,14 @@ $(function(){
                                         +'</a>'
                             
                         }
-                        $('#J_ListContent').append(html);
+                        $('#J_ListContent').append(html).find('img').lazyLoad({binder: '#J_List'});
                         countDown();
+                        is_load =true;
                         def.resolve(list);
                          ++page;
                     }else{
                         var html = html+'<div class="list-donetip">暂无数据</div>'
+                        is_load =true;
                         $('#J_ListContent').html(html);
                         def.resolve(html);
                     }

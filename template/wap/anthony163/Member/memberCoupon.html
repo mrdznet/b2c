@@ -1,0 +1,110 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+<link rel="stylesheet" href="__TEMP__/{$style}/public/css/coupon.css">
+{/block}
+{block name="content"}
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a href="index.html" class="navbar-item" style="font-size: 26px">
+           <i class="back-ico"></i>
+        </a>
+        <div class="navbar-center">
+            <span class="navbar-title">我的优惠券</span>
+        </div>
+    </header>
+    <div class="g-scrollview">
+        <div class="m-tab">
+            <ul class="tab-nav">
+                <li class="tab-nav-item tab-active" data-index="1" data-reactid="7"><a href="javascript:getMemberCounponList(1);">未使用</a></li>
+                <li class="tab-nav-item" data-index="1" data-reactid="7"><a href="javascript:getMemberCounponList(2);">已使用</a></li>
+                <li class="tab-nav-item" data-index="1" data-reactid="7"><a href="javascript:getMemberCounponList(3);">已过期</a></li>
+            </ul>
+            <div class="tab-panel">
+                <div class="tab-panel-item tab-active" id="couponlist">
+            </div>
+        </div>
+    </div>
+</section>    
+{/block}
+{block name="anthonyjs"}
+
+{/block}
+{block name="anthonyjavascript"}
+<script>
+	$(function(){
+		$('.tab-nav .tab-nav-item').click(function(){
+       		$('.tab-nav .tab-nav-item').removeClass('tab-active');
+       		$(this).addClass('tab-active');
+       	})
+		getMemberCounponList(1);
+	})
+	function getMemberCounponList(type){
+		$.ajax({
+			type:'post',
+			async:true,
+			url:'{:__URL('APP_MAIN/member/membercoupon')}',
+			data:{'type':type },
+			dataType:'json',
+			success:function(data){
+				var listhtml='';
+				if(data.length>0){
+					for(var i=0;i<data.length;i++){
+						var money = data[i]['money'] != null ? data[i]['money'] : "";
+						var coupon_code = data[i]['coupon_code'] != null ? data[i]['coupon_code'] : "";
+						var coupon_name = data[i]['coupon_name'] != null ? data[i]['coupon_name'] : "";
+						var start_time = data[i]['start_time'] != null ? data[i]['start_time'] : "";
+						var end_time = data[i]['end_time'] != null ? data[i]['end_time'] : "";
+						var at_least = data[i]['at_least'];
+						if(type == 3){
+								listhtml += '<div class="coupon_list_three">';
+								listhtml += '<ul>';
+								listhtml += '<li>';
+								listhtml += '<p class="coupon_je">￥'+ money +'</p>'
+								listhtml += '<p class="coupon_time">有效时间：'+start_time+'至'+end_time+'</p>'
+								listhtml +=	'<p class="coupon_tj">满'+at_least+'元可使用</p>'
+								listhtml +=	'</li>'
+								listhtml += '</ul>'
+						}else if (type == 2) {
+							listhtml += '<div class="coupon_list_two">';
+								listhtml += '<ul>';
+								listhtml += '<li>';
+								listhtml += '<p class="coupon_je">￥'+ money +'</p>'
+								listhtml += '<p class="coupon_time">有效时间：'+start_time+'至'+end_time+'</p>'
+								listhtml +=	'<p class="coupon_tj">满'+at_least+'元可使用</p>'
+								listhtml +=	'</li>'
+								listhtml += '</ul>'
+						}else{
+								listhtml += '<div class="coupon_list_one">';
+								listhtml += '<ul>';
+								listhtml += '<li>';
+								listhtml += '<p class="coupon_je">￥'+ money +'</p>'
+								listhtml += '<p class="coupon_time">有效时间：'+start_time+'至'+end_time+'</p>'
+								listhtml +=	'<p class="coupon_tj">满'+at_least+'元可使用</p>'
+								listhtml +=	'</li>'
+								listhtml += '</ul>'
+							}
+					}
+				}else{
+					listhtml += '<div class="coupon-empty">';
+						listhtml += '<p>您还没有';
+						switch(type){
+							case 1:
+								listhtml += "{:lang('unused')}";
+							break;
+							case 2:
+								listhtml += "{:lang('used')}";
+							break;
+							case 3:
+								listhtml += "{:lang('expire')}";
+							break;
+						}
+						listhtml += '优惠券</p>';
+					listhtml += '</div>';
+				}
+				$('#couponlist').html(listhtml);
+			}
+		})
+	}
+
+</script>
+{/block}

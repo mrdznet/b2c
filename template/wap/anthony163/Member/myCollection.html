@@ -1,0 +1,102 @@
+{extend name="wap/anthony163/base" /}
+{block name="anthonycss"}
+
+{/block}
+{block name="content"}
+<section class="g-flexview">
+    <header class="m-navbar">
+        <a href="javascript:window.history.go(-1)" class="navbar-item"><i class="back-ico"></i></a>
+        <div class="navbar-center"><span class="navbar-title">我的收藏</span></div>
+    </header>
+    <section class="g-scrollview" id="J_List">
+        <div class="m-tab">
+            <ul class="tab-nav">
+                <li class="tab-nav-item tab-active" data-type="0"><a href="javascript:;">全部</a></li>
+                <li class="tab-nav-item" data-type="1"><a href="javascript:;">本周</a></li>
+                <li class="tab-nav-item" data-type="2"><a href="javascript:;">本月</a></li>
+                <li class="tab-nav-item" data-type="3"><a href="javascript:;">本年</a></li>
+            </ul>
+        </div>
+        <div id="J_ListContent" class="m-list list-theme4"></div>
+    </section>
+</section>
+
+<input type="hidden" id="page_count"><!-- 总页数 -->
+<input type="hidden" id="page" value="1"><!-- 当前页数 -->
+<input type="hidden" id="type" value="0">
+{/block}
+{block name="anthonyjs"}
+{/block}
+{block name="anthonyjavascript"}
+<script>
+$(function(){
+    loadingInfo(0);
+})
+$(".tab-nav .tab-nav-item").click(function(){
+    $(".tab-nav .tab-nav-item").removeClass("tab-active");
+    $(this).addClass("tab-active");
+    var type = $(this).attr("data-type");
+    loadingInfo(type);
+})
+var is_load = false;//防止重复加载
+var APPMAIN = "APP_MAIN";
+function loadingInfo(type){
+        var page = 1, pageSize = 14;
+        var loadMore = function (callback) {
+            if (is_load) {
+                is_load = false;
+                $.ajax({
+                    type:"post",
+                    url:__URL(APPMAIN + "/member/myCollection"),
+                    async : true,
+                    data: {
+                        "type":type,
+                        page: page,
+                        pagesize: pageSize
+                    },
+                    success: function (ret) {
+                        console.log(ret);   
+                        typeof callback == 'function' && callback(ret.data);
+                    }
+                });
+            }
+        };
+
+            $('#J_List').infiniteScroll({
+                binder: '#J_List',
+                pageSize: pageSize,
+                initLoad: true,
+                loadingHtml: '<img src="http://static.ydcss.com/uploads/ydui/loading/loading10.svg"/>',
+                loadListFn: function () {
+                    var def = $.Deferred();
+                    loadMore(function (list) {
+                        // for (var i = 0; i < list.length; i++) {
+                        //     var html = html+'<a href="'+__URL(APPMAIN+'/Articlecenter/articlecontent?article_id='+list[i]['article_id'])+'" class="list-item">'
+                        //                     +'<div class="list-img">'
+                        //                     +'<img src="http://static.ydcss.com/uploads/ydui/goods_default.jpg" data-url="'+__IMG(list[i].image)+'" style="height:2rem;">'
+                        //                     +'</div>'
+                        //                     +'<div class="list-mes">'
+                        //                     +'<h3 class="list-title">'+list[i].title+'</h3>'
+                        //                     +' <div class="list-mes-item">'
+                        //                     +'<div>'
+                        //                     +'<span class="list-price" style="color:#ccc;">'+list[i].author+'</span>'
+                        //                     +'</div>'
+                        //                     +'<div>'+ timeStampTurnTime(list[i]['create_time']) +'</div>'
+                        //                     +'</div>'
+                        //                     +'</div>'
+                        //                     +'</a>'
+                        //     }
+                        // $('#J_ListContent').append(html).find('img').lazyLoad({binder: '#J_List'});
+                        // is_load =true;
+                        // def.resolve(list);
+                        // ++page;
+                        console.log(list);
+                    });
+
+                    return def.promise();
+                }
+            });
+}
+</script>
+
+{/block}

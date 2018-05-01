@@ -47,7 +47,7 @@ $(function(){
                         for (var i = 0; i < list.length; i++) {
                         var html = html+'<a href="'+__URL(APPMAIN+'/goods/grouppurchase?id='+list[i]['goods_id'])+'" class="list-item">'
                                         +'<div class="list-img">'
-                                        +'<img src="'+__IMG(list[i].picture.pic_cover_small)+'">'
+                                        +'<img src="http://static.ydcss.com/uploads/ydui/goods_default.jpg" data-url="'+__IMG(list[i].picture.pic_cover_small)+'">'
                                         +'</div>'
                                         +'<div class="list-mes">'
                                         +'<h3 class="list-title">'+list[i].goods_name+'</h3>'
@@ -60,7 +60,7 @@ $(function(){
                                         +'</div>'
                                         +'</a>'
                         }
-                        $('#J_ListContent').append(html);
+                        $('#J_ListContent').append(html).append(html).find('img').lazyLoad({binder: '#J_List'});
                         def.resolve(list);
                          ++page;
                     }else{

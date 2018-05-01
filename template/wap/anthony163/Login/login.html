@@ -33,12 +33,17 @@
             <div class="m-button">
                 <input type="submit" class="btn-block btn-primary" onclick="login()" value="登录">
             </div>
-            <div class="third_wrap_title">
-                <h3 class="title"><span>其他登录方式</span></h3>
-            </div>
+            {if condition='$loginCount neq 0'}
+                <div class="third_wrap_title">
+                    <h3 class="title"><span>其他登录方式</span></h3>
+                </div>
+            {/if}
+            {if condition="$loginConfig['qq_login_config']['is_use'] eq 1"}
             <div class="third_wrap">
-                <span style="font-size: 50px;color:#1C86EE;"><i class="icon-qq"></i></span>
+                <a href="{:__URL('APP_MAIN/login/oauthlogin?type=QQLOGIN')}"><span style="font-size: 50px;color:#1C86EE;"><i class="icon-qq"></i></span></a>
             </div>
+            {/if}
+
         </div>
     </div>
 </section>
